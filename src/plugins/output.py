@@ -3,7 +3,7 @@ from beet import Context
 from bolt import Module
 import os
 
-VERSION = os.getenv("VERSION", "1.21.3")
+VERSION = os.getenv("VERSION", "1.21.4")
 MAJOR_VERSION = "1_21"
 FORMAT = 57
 FORMATS = [48,57]

@@ -5,7 +5,7 @@ import os
 import requests
 from typing import Any
 
-VERSION = os.getenv("VERSION", "1.21.3")
+VERSION = os.getenv('VERSION', '1.21.4')
 MAJOR_VERSION = "1_21"
 NAME = "skyvoid_worldgen"      # name of the module
 DIR = f"worldgen/{NAME}/data"
@@ -78,6 +78,7 @@ def gen(ctx: Context, cache_loc:str, ignored_dimensions: list[str] = [], full_re
 
     # remove all carvers and placed features
     vanilla = ctx.inject(Vanilla)
+    vanilla.minecraft_version = VERSION
     biomes = vanilla.mount("data/minecraft/worldgen").data[WorldgenBiome]
 
     for biome in biomes.keys():
