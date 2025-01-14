@@ -119,16 +119,7 @@ def gen(ctx: Context, cache_loc:str, ignored_dimensions: list[str] = [], full_re
         data["features"] = [[], [], [] if remove_structures else geode_purge(draft, -64, 320, "initial"), spawners, [], [], [], geode_purge(draft, -64, 320, "initial") if remove_structures else [], 
                   [], [], [], flowers, geode_purge(draft, -64, 320, "final")]
 
-      if (MAJOR_VERSION != ""): # type: ignore
-        overlay_data = gen_overlay(data)
-        draft.overlays[f"skyvoid_{MAJOR_VERSION}"].data[f"minecraft:{name}"] = WorldgenBiome(overlay_data)
-
       draft.data[f"minecraft:{name}"] = WorldgenBiome(data)
-
-def gen_overlay(data: dict[Any, Any]):
-  overlay_data = data.copy()
-  overlay_data["carvers"] = {}
-  return overlay_data
   
 
 def geode_purge(draft: Draft, first: int, last: int, phase: str):
